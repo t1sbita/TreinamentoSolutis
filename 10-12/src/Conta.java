@@ -1,11 +1,11 @@
 
 public class Conta
 {
-	private int NumeroConta;
+	private int    NumeroConta;
 	private String NomeCliente;
 	private String Cpf;
-	private float Saldo;
-	private float Limite;
+	private float  Saldo;
+	private float  Limite;
 	private String TipoConta;
 	
 	public Conta(String nomeCliente, String cpf, String tipoConta)
@@ -78,21 +78,21 @@ public class Conta
 		TipoConta = tipoConta;
 	}
 	
-	public void Limite()
+	public float Limite()
 	{
 		if (Saldo > 500)
 		{
 			Limite = 300;
-		}
-		else
+		} else
 		{
 			Limite = 100;
 		}
+		return Limite;
 	}
 	
 	public void Saque(float valor)
 	{
-		if (valor > Limite)
+		if (valor > Limite())
 		{
 			Saldo -= valor;
 		}
@@ -102,5 +102,6 @@ public class Conta
 	public void Deposito(float valor)
 	{
 		Saldo += valor;
+		Limite();
 	}
 }
